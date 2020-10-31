@@ -29,8 +29,29 @@ class ClassScheduler:
             print("Already running!")
             return
         self.going = True
-        self.add_cardinality_constraint(list(self.section_ref.keys()), 4) #hard encoding a maximum of 4 classes
+        self.add_four_section_constraint()
+        self.add_same_class_constraint()
+        self.add_same_time_constraint()
 
+    def add_four_section_constraint(self):
+        self.add_cardinality_constraint(list(self.section_ref.keys()), 4) #hard encoding a maximum of 4 classes
+    
+    def add_same_class_constraint(self):
+        for c in list(self.class_ref.keys()):
+            sections = []
+            for s in list(self.section_ref.values()):
+                if c == s.class_name:
+                    sections.append(s.section_id)
+            self.add_cardinality_constraint(sections, 1)
+    
+    def add_same_time_constraint(self):
+        for time in range(0, 23):
+            sections = []
+            for s in list(self.section_ref.values()):
+                if s.time == time:
+                    sections.append(s.section_id)
+            self.add_cardinality_constraint(sections, 1)
+                    
     def solve(self):
         if not self.going:
             print("Scheduler not running! Start scheduler with go()")
@@ -71,3 +92,32 @@ class ClassScheduler:
             return
         self.solver.add_clause([ section_id ])
     
+    def add_class_constraint(self, class_name :str):
+        sections = []
+        for s in list(self.section_ref.values()):
+            if s.class_name == class_name:
+                sections.append(s.section_id)
+        self.solver.add_clause(sections)
+
+    def add_subject_constraint(self, subject :str):
+        sections = []
+        for s in list(self.section_ref.values()):
+            section_class = self.section_ref[s.class_name]
+            if section_class.subject == subject:
+                sections.append(s.section_id)
+        self.solver.add_clause(sections)
+
+    def add_nupath_constraint(self, nupath :str):
+        sections = []
+        for s in list(self.section_ref.values()):
+            section_class = self.section_ref[s.class_name]
+            if section_class.nupath == nupath:
+                sections.append(s.section_id)
+        self.solver.add_clause(sections)
+
+    def add_time_constraint(self, start :int =-1, end :int =24):
+        sections = []
+        for s in list(self.section_ref.values()):
+            if not (start <= s.time <= end):
+                self.solver.add_clause([ -s.section_id ])
+
