@@ -182,7 +182,7 @@ class ClassScheduler:
 
         sections = []
         for s in list(self.section_ref.values()):
-            section_class = self.section_ref[s.class_name]
+            section_class = self.class_ref[s.class_name]
             if section_class.subject == subject:
                 sections.append(s.section_id)
         self.solver.add_clause(sections)
@@ -202,7 +202,7 @@ class ClassScheduler:
 
         sections = []
         for s in list(self.section_ref.values()):
-            section_class = self.section_ref[s.class_name]
+            section_class = self.class_ref[s.class_name]
             if section_class.nupath == nupath:
                 sections.append(s.section_id)
         self.solver.add_clause(sections)
