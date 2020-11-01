@@ -5,7 +5,7 @@ class Section:
             time: int = starting time of section
      """
 
-    def __init__(self, section_id: int, class_name :str, time :int):
+    def __init__(self, section_id: int, class_name :str, time :int) -> None:
         self.section_id = section_id
         self.class_name = class_name
         self.time = time

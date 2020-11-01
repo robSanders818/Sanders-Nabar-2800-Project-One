@@ -8,7 +8,7 @@ class ClassData:
             nupath: str = corresponding nupath requirement
     """
 
-    def __init__(self, class_id: str, subject: str, nupath: str):
+    def __init__(self, class_id: str, subject: str, nupath: str) -> None:
         self.class_id = class_id
         self.subject = subject
         self.nupath = nupath
