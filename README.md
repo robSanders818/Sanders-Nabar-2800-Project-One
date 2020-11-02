@@ -8,7 +8,7 @@
   Then run the command "pip3 install python-sat".  This should enable the sat solver library to 
   work correctly.  For more help see https://pysathq.github.io/installation.html
   
-  <br>To install testing library, in directory, use "python3 -m pip install pytest"
+  <br>To install testing library, in directory, use > "python3 -m pip install pytest"
 </details>
 
 ### General Problem Area:
