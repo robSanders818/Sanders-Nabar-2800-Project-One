@@ -1,5 +1,11 @@
 # Midterm Project: Class Scheduler Satisfiability Problem
 ## Ohm Nabar and Robert Sanders
+### Installation Instructions:
+<details>
+  <summary>See Instructions (Click to expand)</summary>
+  To install testing library, in directory, use > "python3 -m pip install pytest"
+</details>
+
 ### Results:
 <details>
   <summary>See Results (Click to expand)</summary>
