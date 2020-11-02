@@ -3,7 +3,8 @@
 ### Installation Instructions:
 <details>
   <summary>See Instructions (Click to expand)</summary>
-  To install testing library, in directory, use > "python3 -m pip install pytest"
+  
+  <br>To install testing library, in directory, use "python3 -m pip install pytest"
 </details>
 
 ### Results:
