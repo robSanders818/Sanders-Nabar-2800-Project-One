@@ -1,7 +1,8 @@
 # Midterm Project: Class Scheduler Satisfiability Problem
 ## Ohm Nabar and Robert Sanders
-
 ### Results:
+<details>
+  <summary>See Results (Click to expand)</summary>
 It was really interesting to analyze the output of our Class Scheduler along 
 different constraints, and combinations of classes.  We set out a goal to 
 find an available schedule when provided with a dataset of classes.  We
@@ -59,3 +60,5 @@ and it successfully chooses a generic philosophy class this student could fit in
 
 In this schedule, we show how a schedule with only 3 hours of time constraints is unsatisfiable when 
 choosing 4 classes, as we couldn't choose 4 sections without time overlap.
+
+</details>
