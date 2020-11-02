@@ -34,22 +34,30 @@ class ClassScheduler:
 
     def solve(self) -> None:
         """
+        Helper Function for do_solver()
+        Useful for tests
+        """
+        print(self.do_solver())
+
+    def do_solver(self) -> str:
+        """
         Determines whether or not there is a satisfiable assignment of sections given the current constraints.
         If there is, it will be printed out.
         """
 
         if not self.going:
-            print("Scheduler not running! Start scheduler with go()")
-            return
+            return "Scheduler not running! Start scheduler with go()"
+        solve_string = ""
 
         if self.solver.solve():
-            print("Satisfiable!")
+            solve_string += "Satisfiable!"
             for section_id in self.solver.get_model():
                 if section_id in self.section_ref.keys():
                     section_temp = self.section_ref[section_id]
-                    print(section_temp.class_name + " at " + str(section_temp.time) + ":00, section_id: " + str(section_id))
+                    solve_string += "\n" + section_temp.class_name + " at " + str(section_temp.time) + ":00, section_id: " + str(section_id)
         else:
-            print("Unsatisfiable :(")
+            solve_string += "Unsatisfiable :("
+        return solve_string
     
     def go(self) -> None:
         """
@@ -176,7 +184,7 @@ class ClassScheduler:
             print("Scheduler not running! Start scheduler with go()")
             return
 
-        if subject not in {"CS", "MATH", "PHIL", "ECON"}: #hardcoded for now
+        if subject not in [c.split(' ')[0] for c in self.class_ref.keys()]:
             print("Invalid subject")
             return
 
