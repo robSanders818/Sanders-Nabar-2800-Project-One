@@ -2,7 +2,7 @@
 ## Ohm Nabar and Robert Sanders
 ### Installation Instructions:
 
-To install the sat solver library, you must use a unix based system. Then run the command
+To install the sat solver library, you must use a unix based system with python3 and pip3 installed. Then run the command
 "pip3 install python-sat".  This should enable the sat solver library to
 work correctly.  For more help see 
 > https://pysathq.github.io/installation.html
@@ -12,8 +12,9 @@ work correctly.  For more help see
 
 ### Execution Instructions:
 
-run python, then import the ClassScheduler, create an instance of the class_scheduler, then run go() on
-the instance.
+run python3, then import the ClassScheduler with, create an instance of the class_scheduler, then run go() on
+the instance as follows:
+> "from sat_solver import ClassScheduler; c = ClassScheduler(); c.go()"
 
 Then call any of the following functions to add constraints:
 - add_section_constraint(section_id: int)
